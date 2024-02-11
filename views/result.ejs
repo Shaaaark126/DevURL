@@ -1,24 +1,15 @@
 <html>
+    <link rel = "stylesheet" href = "styles.css">
     <body>
-        <table>
-            <tr>
-                <th>Sr No</th>
-                <th>City</th>
-                <th>Possibility of Crime</th>
-                <th>Damages done</th>
-            </tr>
-        </table>
+            <div class = "possibility">
+                <p>The possibility of crime happening in <%= crimeObject.tarea %> </p>
+                <p class = "big"><%= crimeObject.possibility %>%</p>
+            </div>
+            <div class = "type">
+                <p>Likely type of crime to occur</p>
+                <p class = "big"><%= crimeObject.type %></p>
+            </div>
+                
+            <div>
     </body>
-
-    <div class = "container">
-        <div>
-            <p>The possibility of crime happening here is <%= crimeObject.possibility %></p>
-        </div>
-        <div>
-            <p>Likely type of crime to occur <%= crimeObject.type %></p>
-        </div>
-            
-        <div>
-
-    </div>
 </html>
