@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chicago Community Areas</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+    body{
+
+      font-family: 'Montserrat', sans-serif;
+      
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    button{
+
+      font-family: 'Montserrat', sans-serif;
+      font-size: large;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Chicago Community Areas</h2>
+<button onclick="sortTable()">Sort by crime</button>
+
+<table id="communityData">
+  <tr>
+    <th>Name</th>
+    <th>Crimes</th>
+    <th>Population</th>
+    <th>Per Capita</th>
+  </tr>
+  <tr>
+    <td>Rogers Park</td>
+    <td>1381</td>
+    <td>55628</td>
+    <td>0.0248</td>
+  </tr>
+  <tr>
+    <td>West Ridge</td>
+    <td>1334</td>
+    <td>77122</td>
+    <td>0.0173</td>
+  </tr>
+  <tr>
+    <td>Uptown</td>
+    <td>1312</td>
+    <td>57182</td>
+    <td>0.0229</td>
+  </tr>
+  <tr>
+    <td>Lincoln Square</td>
+    <td>910</td>
+    <td>40494</td>
+    <td>0.0225</td>
+  </tr>
+  <tr>
+    <td>North Center</td>
+    <td>558</td>
+    <td>35114</td>
+    <td>0.0159</td>
+  </tr>
+  <tr>
+    <td>Lake View</td>
+    <td>2349</td>
+    <td>103050</td>
+    <td>0.0228</td>
+  </tr>
+  <tr>
+    <td>Lincoln Park</td>
+    <td>1631</td>
+    <td>70492</td>
+    <td>0.0231</td>
+  </tr>
+  <tr>
+    <td>Near North Side</td>
+    <td>3864</td>
+    <td>105481</td>
+    <td>0.0366</td>
+  </tr>
+  <tr>
+    <td>Edison Park</td>
+    <td>86</td>
+    <td>11525</td>
+    <td>0.0075</td>
+  </tr>
+  <tr>
+    <td>Norwood Park</td>
+    <td>371</td>
+    <td>38303</td>
+    <td>0.0097</td>
+  </tr>
+  <tr>
+    <td>Jefferson Park</td>
+    <td>374</td>
+    <td>26216</td>
+    <td>0.0143</td>
+  </tr>
+  <tr>
+    <td>Forest Glen</td>
+    <td>198</td>
+    <td>19596</td>
+    <td>0.0101</td>
+  </tr>
+  <tr>
+    <td>North Park</td>
+    <td>343</td>
+    <td>17559</td>
+    <td>0.0195</td>
+  </tr>
+  <tr>
+    <td>Albany Park</td>
+    <td>895</td>
+    <td>48396</td>
+    <td>0.0185</td>
+  </tr>
+  <tr>
+    <td>Portage Park</td>
+    <td>1020</td>
+    <td>63020</td>
+    <td>0.0162</td>
+  </tr>
+  <tr>
+    <td>Irving Park</td>
+    <td>920</td>
+    <td>51940</td>
+    <td>0.0177</td>
+  </tr>
+  <tr>
+    <td>Dunning</td>
+    <td>442</td>
+    <td>43147</td>
+    <td>0.0102</td>
+  </tr>
+  <tr>
+    <td>Montclare</td>
+    <td>189</td>
+    <td>14401</td>
+    <td>0.0131</td>
+  </tr>
+  <tr>
+    <td>Belmont Cragin</td>
+    <td>1317</td>
+    <td>78116</td>
+    <td>0.0169</td>
+  </tr>
+  <tr>
+    <td>Hermosa</td>
+    <td>462</td>
+    <td>24062</td>
+    <td>0.0192</td>
+  </tr>
+  <tr>
+    <td>Avondale</td>
+    <td>856</td>
+    <td>36257</td>
+    <td>0.0236</td>
+  </tr>
+  <tr>
+    <td>Logan Square</td>
+    <td>1844</td>
+    <td>71665</td>
+    <td>0.0257</td>
+  </tr>
+  <tr>
+    <td>Humboldt Park</td>
+    <td>2313</td>
+    <td>54165</td>
+    <td>0.0427</td>
+  </tr>
+  <tr>
+    <td>West Town</td>
+    <td>2904</td>
+    <td>87781</td>
+    <td>0.0331</td>
+  </tr>
+  <tr>
+    <td>Austin</td>
+    <td>4824</td>
+    <td>9655</td>
+  </tr>
+        ... <tr>
+            <td>West Garfield Park</td>
+            <td>1704</td>
+            <td>17433</td>
+            <td>0.0977</td>
+          </tr>
+          <tr>
+            <td>East Garfield Park</td>
+            <td>1332</td>
+            <td>19992</td>
+            <td>0.0666</td>
+          </tr>
+          <tr>
+            <td>Near West Side</td>
+            <td>3196</td>
+            <td>67881</td>
+            <td>0.0471</td>
+          </tr>
+          <tr>
+            <td>North Lawndale</td>
+            <td>2477</td>
+            <td>34794</td>
+            <td>0.0712</td>
+          </tr>
+          <tr>
+            <td>South Lawndale</td>
+            <td>1260</td>
+            <td>71399</td>
+            <td>0.0176</td>
+          </tr>
+          <tr>
+            <td>Lower West Side</td>
+            <td>868</td>
+            <td>33751</td>
+            <td>0.0257</td>
+          </tr>
+          <tr>
+            <td>Loop (The)</td>
+            <td>2671</td>
+            <td>42298</td>
+            <td>0.0631</td>
+          </tr>
+          <tr>
+            <td>Near South Side</td>
+            <td>662</td>
+            <td>28795</td>
+            <td>0.0230</td>
+          </tr>
+          <tr>
+            <td>Armour Square</td>
+            <td>412</td>
+            <td>13890</td>
+            <td>0.0297</td>
+          </tr>
+          <tr>
+            <td>Douglas</td>
+            <td>858</td>
+            <td>20291</td>
+            <td>0.0423</td>
+          </tr>
+          <tr>
+            <td>Oakland</td>
+            <td>215</td>
+            <td>6799</td>
+            <td>0.0316</td>
+          </tr>
+          <tr>
+            <td>Fuller Park</td>
+            <td>284</td>
+            <td>2567</td>
+            <td>0.1106</td>
+          </tr>
+          <tr>
+            <td>Grand Boulevard</td>
+            <td>1109</td>
+            <td>24589</td>
+            <td>0.0451</td>
+          </tr>
+          <tr>
+            <td>Kenwood</td>
+            <td>503</td>
+            <td>19116</td>
+            <td>0.0263</td>
+          </tr>
+          <tr>
+            <td>Washington Park</td>
+            <td>693</td>
+            <td>12707</td>
+            <td>0.0545</td>
+          </tr>
+          <tr>
+            <td>Hyde Park</td>
+            <td>743</td>
+            <td>29456</td>
+            <td>0.0252</td>
+          </tr>
+          <tr>
+            <td>Woodlawn</td>
+            <td>1113</td>
+            <td>24425</td>
+            <td>0.0456</td>
+          </tr>
+          <tr>
+            <td>South Shore</td>
+            <td>2965</td>
+            <td>53971</td>
+            <td>0.0549</td>
+          </tr>
+          <tr>
+            <td>Chatham</td>
+            <td>2189</td>
+            <td>31710</td>
+            <td>0.0690</td>
+          </tr>
+          <tr>
+            <td>Avalon Park</td>
+            <td>420</td>
+            <td>9458</td>
+            <td>0.0444</td>
+          </tr>
+          <tr>
+            <td>South Chicago</td>
+            <td>1193</td>
+            <td>27300</td>
+            <td>0.0437</td>
+          </tr>
+          <tr>
+            <td>Burnside</td>
+            <td>109</td>
+            <td>2527</td>
+            <td>0.0431</td>
+          </tr>
+          <tr>
+            <td>Calumet Heights</td>
+            <td>514</td>
+            <td>13088</td>
+            <td>0.0393</td>
+          </tr>
+          <tr>
+            <td>Roseland</td>
+            <td>2130</td>
+            <td>38816</td>
+            <td>0.0549</td>
+          </tr>
+          <tr>
+            <td>Pullman</td>
+            <td>307</td>
+            <td>6820</td>
+            <td>0.0450</td>
+          </tr>
+          <td>South Deering</td>
+          <td>623</td>
+          <td>14105</td>
+          <td>.0442</td>
+      </tr>
+      <tr>
+          <td>East Side</td>
+          <td>296</td>
+          <td>21724</td>
+          <td>.0136</td>
+      </tr>
+      <tr>
+          <td>West Pullman</td>
+          <td>1456</td>
+          <td>26104</td>
+          <td>.0558</td>
+      </tr>
+      <tr>
+          <td>Riverdale</td>
+          <td>333</td>
+          <td>7262</td>
+          <td>.0459</td>
+      </tr>
+      <tr>
+          <td>Hegewisch</td>
+          <td>188</td>
+          <td>10027</td>
+          <td>.0187</td>
+      </tr>
+      <tr>
+          <td>Garfield Ridge</td>
+          <td>506</td>
+          <td>35439</td>
+          <td>.0143</td>
+      </tr>
+      <tr>
+          <td>Archer Heights</td>
+          <td>308</td>
+          <td>14196</td>
+          <td>.0217</td>
+      </tr>
+      <tr>
+          <td>Brighton Park</td>
+          <td>603</td>
+          <td>45053</td>
+          <td>.0134</td>
+      </tr>
+      <tr>
+          <td>McKinley Park</td>
+          <td>282</td>
+          <td>15923</td>
+          <td>.0177</td>
+      </tr>
+      <tr>
+          <td>Bridgeport</td>
+          <td>508</td>
+          <td>33702</td>
+          <td>.0151</td>
+      </tr>
+      <tr>
+          <td>New City</td>
+          <td>1367</td>
+          <td>43628</td>
+          <td>.0313</td>
+      </tr>
+      <tr>
+          <td>West Elsdon</td>
+          <td>282</td>
+          <td>18394</td>
+          <td>.0153</td>
+      </tr>
+      <tr>
+          <td>Gage Park</td>
+          <td>615</td>
+          <td>39540</td>
+          <td>.0156</td>
+      </tr>
+      <tr>
+          <td>Clearing</td>
+          <td>277</td>
+          <td>24473</td>
+          <td>.0113</td>
+      </tr>
+      <tr>
+          <td>West Lawn</td>
+          <td>538</td>
+          <td>33662</td>
+          <td>.0160</td>
+      </tr>
+      <tr>
+          <td>Chicago Lawn</td>
+          <td>1849</td>
+          <td>55931</td>
+          <td>.0331</td>
+      </tr>
+      <tr>
+          <td>West Englewood</td>
+          <td>2090</td>
+          <td>29647</td>
+          <td>.0705</td>
+      </tr>
+      <tr>
+          <td>Englewood</td>
+          <td>1815</td>
+          <td>24369</td>
+          <td>.0745</td>
+      </tr>
+      <tr>
+          <td>Greater Grand Crossing</td>
+          <td>2233</td>
+          <td>31471</td>
+          <td>.0710</td>
+      </tr>
+      <tr>
+          <td>Ashburn</td>
+          <td>700</td>
+          <td>41098</td>
+          <td>.0170</td>
+      </tr>
+      <tr>
+          <td>Auburn Gresham</td>
+          <td>2172</td>
+          <td>44878</td>
+          <td>.0484</td>
+      </tr>
+      <tr>
+          <td>Beverly</td>
+          <td>313</td>
+          <td>20027</td>
+          <td>.0156</td>
+      </tr>
+      <tr>
+        <td>Washington Heights</td>
+        <td>984</td>
+        <td>25065</td>
+        <td>.0393</td>
+    </tr>
+    <tr>
+        <td>Mount Greenwood</td>
+        <td>123</td>
+        <td>18628</td>
+        <td>.0066</td>
+    </tr>
+    <tr>
+        <td>Morgan Park</td>
+        <td>641</td>
+        <td>21186</td>
+        <td>.0303</td>
+    </tr>
+    <tr>
+        <td>O'Hare</td>
+        <td>399</td>
+        <td>13418</td>
+        <td>.0297</td>
+    </tr>
+    <tr>
+        <td>Edgewater</td>
+        <td>1068</td>
+        <td>56296</td>
+        <td>.0190</td>
+    </tr>
+        </table>
+
+        <script>
+          function sortTable() {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("communityData");
+            switching = true;
+            while (switching) {
+              switching = false;
+              rows = table.rows;
+              for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[1];
+                y = rows[i + 1].getElementsByTagName("TD")[1];
+                if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+              if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+              }
+            }
+          }
+          </script>
+        
+        </body>
+        </html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get User's Location</title>
+    <style>
+
+        body{
+
+            background-color: black;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            border: 5px solid yellow;
+        }
+
+        h1{
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: xx-large;
+            color: white;
+        }
+
+        #address{
+
+            margin-top: 30px;
+            font-size: xx-large;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>How safe is your current location from crime ?</h1>
+    <div id="map"></div>
+    <div id="address"></div>
+
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 15
+            });
+
+            var geocoder = new google.maps.Geocoder();
+
+            // Try HTML5 geolocation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: 'Your location'
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        title: 'Your Location'
+                    });
+
+                    map.setCenter(pos);
+
+                    // Reverse geocoding
+                    geocoder.geocode({ 'location': pos }, function (results, status) {
+                        if (status === 'OK') {
+                            if (results[0]) {
+                                var formattedAddress = results[0].formatted_address;
+                                var district = getDistrict(results[0]);
+
+                                if (district === "Austin" || district === "Englewood" || district === "Garfield Park") 
+                                    document.getElementById('address').innerHTML = 'Your District: ' + district + 'is not safe';
+                                else{
+                                    document.getElementById('address').innerHTML = 'Your District: ' + district + ' is safe';
+
+                                }
+                            } else {
+                                document.getElementById('address').innerHTML = 'No results found';
+                            }
+                        } else {
+                            console.log('Geocoder failed due to: ' + status);
+                        }
+                    });
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+
+        function getDistrict(geocodeResult) {
+            for (var i = 0; i < geocodeResult.address_components.length; i++) {
+                var addressComponent = geocodeResult.address_components[i];
+                for (var j = 0; j < addressComponent.types.length; j++) {
+                    if (addressComponent.types[j] == 'administrative_area_level_2') {
+                        return addressComponent.long_name;
+                    }
+                }
+            }
+            return 'District not found';
+        }
+    </script>
+
+    
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUgOiyBW7xUOLIHUVg0mhvySc2neuDxTo&callback=initMap" async defer></script>
+</body>
+</html>
