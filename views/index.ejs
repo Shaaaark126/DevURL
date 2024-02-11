@@ -1,121 +1,104 @@
 <html>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel = "stylesheet" href = "styles.css">
     <body>
       <div class = "top">
-        <p class = "c">Crime Analysis Report</p>
-      </div>
-      <!--<div class = "container">
-        <img src = "https://www.travelandleisure.com/thmb/wwUPgdpCUuD5sAPFLQf4YasjH0M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicago-illinois-CHITG0221-e448062fc5164da0bba639f9857987f6.jpg">
-        <div class = "forms">
-          <form action="/submit-area-code" method="POST">
-            <select name="area" id="areas">
-              <option value="01-Rogers Park">Rogers Park</option>
-      <option value="02-West Ridge">West Ridge</option>
-      <option value="03-Uptown">Uptown</option>
-      <option value="04-Lincoln Square">Lincoln Square</option>
-      <option value="05-North Center">North Center</option>
-      <option value="06-Lakeview">Lakeview</option>
-      <option value="07-Lincoln Park">Lincoln Park</option>
-      <option value="08-Near North Side">Near North Side</option>
-      <option value="09-Edison Park">Edison Park</option>
-      <option value="10-Norwood Park">Norwood Park</option>
-      <option value="11-Jefferson Park">Jefferson Park</option>
-      <option value="12-Forest Glen">Forest Glen</option>
-      <option value="13-North Park">North Park</option>
-      <option value="14-Albany Park">Albany Park</option>
-      <option value="15-Portage Park">Portage Park</option>
-      <option value="16-Irving Park">Irving Park</option>
-      <option value="17-Dunning">Dunning</option>
-      <option value="18-Montclare">Montclare</option>
-      <option value="19-Belmont Cragin">Belmont Cragin</option>
-      <option value="20-Hermosa">Hermosa</option>
-      <option value="21-Avondale">Avondale</option>
-      <option value="22-Logan Square">Logan Square</option>
-      <option value="23-Humboldt Park">Humboldt Park</option>
-      <option value="24-West Town">West Town</option>
-      <option value="25-Austin">Austin</option>
-      <option value="26-West Garfield Park">West Garfield Park</option>
-      <option value="27-East Garfield Park">East Garfield Park</option>
-      <option value="28-Near West Side">Near West Side</option>
-      <option value="29-North Lawndale">North Lawndale</option>
-      <option value="30-South Lawndale">South Lawndale</option>
-      <option value="31-Lower West Side">Lower West Side</option>
-      <option value="32-Loop">Loop</option>
-      <option value="33-Near South Side">Near South Side</option>
-      <option value="34-Armour Square">Armour Square</option>
-      <option value="35-Douglas">Douglas</option>
-      <option value="36-Oakland">Oakland</option>
-      <option value="37-Fuller Park">Fuller Park</option>
-      <option value="38-Grand Boulevard">Grand Boulevard</option>
-      <option value="39-Kenwood">Kenwood</option>
-      <option value="40-Washington Park">Washington Park</option>
-      <option value="41-Hyde Park">Hyde Park</option>
-      <option value="42-Woodlawn">Woodlawn</option>
-      <option value="43-South Shore">South Shore</option>
-      <option value="44-Chatham">Chatham</option>
-      <option value="45-Avalon Park">Avalon Park</option>
-      <option value="46-South Chicago">South Chicago</option>
-      <option value="47-Burnside">Burnside</option>
-      <option value="48-Calumet Heights">Calumet Heights</option>
-      <option value="49-Roseland">Roseland</option>
-      <option value="50-Pullman">Pullman</option>
-      <option value="51-South Deering">South Deering</option>
-      <option value="52-East Side">East Side</option>
-      <option value="53-West Pullman">West Pullman</option>
-      <option value="54-Riverdale">Riverdale</option>
-      <option value="55-Hegewisch">Hegewisch</option>
-      <option value="56-Garfield Ridge">Garfield Ridge</option>
-      <option value="57-Archer Heights">Archer Heights</option>
-      <option value="58-Brighton Park">Brighton Park</option>
-      <option value="59-McKinley Park">McKinley Park</option>
-      <option value="60-Bridgeport">Bridgeport</option>
-      <option value="61-New City">New City</option>
-      <option value="62-West Elsdon">West Elsdon</option>
-      <option value="63-Gage Park">Gage Park</option>
-      <option value="64-Clearing">Clearing</option>
-      <option value="65-West Lawn">West Lawn</option>
-      <option value="66-Chicago Lawn">Chicago Lawn</option>
-      <option value="67-West Englewood">West Englewood</option>
-      <option value="68-Englewood">Englewood</option>
-      <option value="69-Greater Grand Crossing">Greater Grand Crossing</option>
-      <option value="70-Ashburn">Ashburn</option>
-      <option value="71-Auburn Gresham">Auburn Gresham</option>
-      <option value="72-Beverly">Beverly</option>
-      <option value="73-Washington Heights">Washington Heights</option>
-      <option value="74-Mount Greenwood">Mount Greenwood</option>
-      <option value="75-Morgan Park">Morgan Park</option>
-      <option value="76-O'Hare">O'Hare</option>
-      <option value="77-Edgewater">Edgewater</option>
-      
-            </select> 
-            <button type="submit">Submit</button>
-            </form>
-        </div>
-      </div>
-      <label for="areasl">Choose a community area:</label>-->
+        <p class = "c">Crime Analysis</p>
+        <button class = "t" onclick = "loadleaderboard()">Most Dangerous Districts</button>
+        <button class = "p" onclick = "loadlocation()">Current location safety</button>
+        <button class = "o" onclick = "loadoutreach()">Police Updates</button>
 
+      </div>
+      
       <div class="container">
         <img src="https://www.travelandleisure.com/thmb/wwUPgdpCUuD5sAPFLQf4YasjH0M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chicago-illinois-CHITG0221-e448062fc5164da0bba639f9857987f6.jpg">
         <div class="forms">
+          <p>Choose a community area</p>
           <form action="/submit-area-code" method="POST">
-            <div class="select-wrapper">
               <select name="area" class="areas">
                 <option value="01-Rogers Park">Rogers Park</option>
-                <!-- other options here -->
+                <option value="02-West Ridge">West Ridge</option>
+                <option value="03-Uptown">Uptown</option>
+                <option value="04-Lincoln Square">Lincoln Square</option>
+                <option value="05-North Center">North Center</option>
+                <option value="06-Lakeview">Lakeview</option>
+                <option value="07-Lincoln Park">Lincoln Park</option>
+                <option value="08-Near North Side">Near North Side</option>
+                <option value="09-Edison Park">Edison Park</option>
+                <option value="10-Norwood Park">Norwood Park</option>
+                <option value="11-Jefferson Park">Jefferson Park</option>
+                <option value="12-Forest Glen">Forest Glen</option>
+                <option value="13-North Park">North Park</option>
+                <option value="14-Albany Park">Albany Park</option>
+                <option value="15-Portage Park">Portage Park</option>
+                <option value="16-Irving Park">Irving Park</option>
+                <option value="17-Dunning">Dunning</option>
+                <option value="18-Montclare">Montclare</option>
+                <option value="19-Belmont Cragin">Belmont Cragin</option>
+                <option value="20-Hermosa">Hermosa</option>
+                <option value="21-Avondale">Avondale</option>
+                <option value="22-Logan Square">Logan Square</option>
+                <option value="23-Humboldt Park">Humboldt Park</option>
+                <option value="24-West Town">West Town</option>
+                <option value="25-Austin">Austin</option>
+                <option value="26-West Garfield Park">West Garfield Park</option>
+                <option value="27-East Garfield Park">East Garfield Park</option>
+                <option value="28-Near West Side">Near West Side</option>
+                <option value="29-North Lawndale">North Lawndale</option>
+                <option value="30-South Lawndale">South Lawndale</option>
+                <option value="31-Lower West Side">Lower West Side</option>
+                <option value="32-Loop">Loop</option>
+                <option value="33-Near South Side">Near South Side</option>
+                <option value="34-Armour Square">Armour Square</option>
+                <option value="35-Douglas">Douglas</option>
+                <option value="36-Oakland">Oakland</option>
+                <option value="37-Fuller Park">Fuller Park</option>
+                <option value="38-Grand Boulevard">Grand Boulevard</option>
+                <option value="39-Kenwood">Kenwood</option>
+                <option value="40-Washington Park">Washington Park</option>
+                <option value="41-Hyde Park">Hyde Park</option>
+                <option value="42-Woodlawn">Woodlawn</option>
+                <option value="43-South Shore">South Shore</option>
+                <option value="44-Chatham">Chatham</option>
+                <option value="45-Avalon Park">Avalon Park</option>
+                <option value="46-South Chicago">South Chicago</option>
+                <option value="47-Burnside">Burnside</option>
+                <option value="48-Calumet Heights">Calumet Heights</option>
+                <option value="49-Roseland">Roseland</option>
+                <option value="50-Pullman">Pullman</option>
+                <option value="51-South Deering">South Deering</option>
+                <option value="52-East Side">East Side</option>
+                <option value="53-West Pullman">West Pullman</option>
+                <option value="54-Riverdale">Riverdale</option>
+                <option value="55-Hegewisch">Hegewisch</option>
+                <option value="56-Garfield Ridge">Garfield Ridge</option>
+                <option value="57-Archer Heights">Archer Heights</option>
+                <option value="58-Brighton Park">Brighton Park</option>
+                <option value="59-McKinley Park">McKinley Park</option>
+                <option value="60-Bridgeport">Bridgeport</option>
+                <option value="61-New City">New City</option>
+                <option value="62-West Elsdon">West Elsdon</option>
+                <option value="63-Gage Park">Gage Park</option>
+                <option value="64-Clearing">Clearing</option>
+                <option value="65-West Lawn">West Lawn</option>
+                <option value="66-Chicago Lawn">Chicago Lawn</option>
+                <option value="67-West Englewood">West Englewood</option>
+                <option value="68-Englewood">Englewood</option>
+                <option value="69-Greater Grand Crossing">Greater Grand Crossing</option>
+                <option value="70-Ashburn">Ashburn</option>
+                <option value="71-Auburn Gresham">Auburn Gresham</option>
+                <option value="72-Beverly">Beverly</option>
+                <option value="73-Washington Heights">Washington Heights</option>
+                <option value="74-Mount Greenwood">Mount Greenwood</option>
+                <option value="75-Morgan Park">Morgan Park</option>
+                <option value="76-O'Hare">O'Hare</option>
                 <option value="77-Edgewater">Edgewater</option>
               </select>
-            </div>
             <button class = "thesubmit" type="submit">Submit</button>
           </form>
         </div>
       </div>
-      
-
-      
         <script src = "script.js"></script>
-      <!---- <script
-      src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places&v=weekly"
-      defer</script>-->
     </script>
     </body>
 </html>
