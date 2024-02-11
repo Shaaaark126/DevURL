@@ -1,24 +1,31 @@
 .top{
 
-    height: 100px;
+    height: 150px;
     margin-top: -50px;
     background-color: black;
     width:auto;
+    display: flex;
+    
 }
 
 .c{
 
     font-style: italic;
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 30px;
     margin-left: 20px;
+    padding-top: 50px;
     color: white;
+    width: 300px;
+    display: flex;
 }
 
 body{
 
     margin: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
+
 
 .container {
     position: relative;
@@ -33,25 +40,116 @@ body{
   
   .forms {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex; 
+    width: 400px;
+    height: 170px;
+    background-color: white;
+
   }
   
-  .select-wrapper {
-    position: relative;
+  .forms > :first-child {
+
+    margin-left: 120px;
+    font-size: larger;
+    font-weight: bold;
+
+  }
+
+  .areas{
+
+    margin-top: 105px;
+    margin-left: -275px;
+    font-size: 20px;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+     
   }
   
-  .select-wrapper::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    background: rgba(0, 0, 0, 0.5);
+  .thesubmit{
+
+    display: flex;
+    margin-top: -31px;
+    margin-right: 20px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
   }
+
+  .t{
+
+    color: white;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+    height: 20vh;
+    margin-top: 40px;
+    margin-left: 520px;
+    background-color: transparent;
+    border: transparent;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  .p{
+
+    color: white;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+    height: 20vh;
+    margin-top: 40px;
+    background-color: transparent;
+    border: transparent;
+    margin-left: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  .o{
+
+    color: white;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+    height: 20vh;
+    margin-top: 40px;
+    background-color: transparent;
+    border: transparent;
+    margin-left: 10px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  .possibility{
+    
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 300px;
+    width: auto;
+    flex-direction: column;
+
+
+  }
+
+  .type{
+
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 200px;
+    width: auto;
+    flex-direction: column;
+
+
+  }
+
+  .big{
+
+    font-size: 50px ;
+
+  }
+
+  
   
 
   
